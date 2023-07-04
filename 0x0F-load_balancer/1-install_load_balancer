@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Configures an ubuntu server to use haproxy in a roudrobin between two web servers
+apt-get update
+apt-get -y install haproxy
+echo "ENABLED=1" >> /etc/default/haproxy
+cp /etc/haproxy/haproxy.cfg .
+cat >> /etc/haproxy/haproxy.cfg << EOF
+frontend get_cfg
+        bind *:80
+        mode http
+        default_backend forward_cfg
+backend forward_cfg
+        balance roundrobin
+        server 220456-web-01  54.209.15.122:80 check
+        server 220456-web-02  54.198.75.223:80 check
+EOF
+service haproxy restart
