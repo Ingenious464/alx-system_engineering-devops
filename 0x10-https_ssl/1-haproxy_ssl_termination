@@ -36,7 +36,7 @@ defaults
 
 frontend get_cfg
         bind *:80
-        bind *:443 ssl crt /etc/ssl/certs/juanbuitrago.tech.pem
+        bind *:443 ssl crt /etc/ssl/certs/oneingenious.tech.pem
         http-request redirect scheme https unless { ssl_fc }
         default_backend forward_cfg
 backend forward_cfg
