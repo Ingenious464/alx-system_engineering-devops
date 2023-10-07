@@ -11,7 +11,7 @@ frontend get_cfg
         default_backend forward_cfg
 backend forward_cfg
         balance roundrobin
-        server 220456-web-01  54.209.15.122:80 check
-        server 220456-web-02  54.198.75.223:80 check
+        server 220456-web-01  52.87.222.68:80 check
+        server 220456-web-02 100.25.13.173:80 check
 EOF
 service haproxy restart
